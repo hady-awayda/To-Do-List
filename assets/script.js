@@ -26,7 +26,47 @@ const loadTasks = () => {
 };
 
 // Function to render a task
-const renderTask = (task) => {};
+const renderTask = (task) => {
+  const taskElement = document.createElement("div");
+  taskElement.classList.add("task");
+  taskElement.classList.add(task.status);
+  taskElement.setAttribute("draggable", true);
+
+  const details = document.createElement("div");
+  details.classList.add("details");
+  details.innerHTML = `
+	<strong>${task.name}</strong>
+	<span>${task.person}</span>
+	<span>${new Date(task.date).toLocaleDateString("en-US")}</span>
+  `;
+
+  const actionsElement = document.createElement("div");
+  actionsElement.classList.add("actions");
+  const completeButton = document.createElement("button");
+  completeButton.classList.add("complete");
+  completeButton.addEventListener("click", () => {
+    task.status = "completed";
+    updateTaskStatus(task);
+  });
+
+  actionsElement.appendChild(completeButton);
+
+  taskElement.appendChild(detailsElement);
+  taskElement.appendChild(actionsElement);
+
+  if (task.status === "pending") {
+    pending.appendChild(taskElement);
+  } else if (task.status === "completed") {
+    completed.appendChild(taskElement);
+  } else if (task.status === "past-due") {
+    pastDue.appendChild(taskElement);
+  }
+
+  taskElement.addEventListener("dragstart", dragStart);
+  taskElement.addEventListener("dragend", dragEnd);
+
+  checkTaskDueDate(task);
+};
 
 // Retrieve tasks from local storage which is stored as a JSON string and convert it back to an array of objects
 const getTasks = () => {
