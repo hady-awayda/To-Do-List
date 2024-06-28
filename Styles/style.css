@@ -21,6 +21,7 @@ main {
 
 .task-columns {
   display: flex;
+  margin-top: 40px;
   gap: 20px;
 }
 
@@ -33,11 +34,14 @@ main {
 
 .task-list {
   min-height: 200px;
+  width: 250px;
 }
 
 .task {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  gap: 10px;
   padding: 10px;
   margin: 5px 0;
   border: 1px solid #ddd;
@@ -47,10 +51,14 @@ main {
 .task .details {
   display: flex;
   flex-direction: column;
+  gap: 6px;
+  width: 200px;
+  height: 80px;
 }
 
 .task .actions {
   display: flex;
+  justify-content: space-between;
   gap: 10px;
 }
 
@@ -60,4 +68,37 @@ main {
 
 .task.past-due {
   background-color: #f8d7da;
+}
+
+.complete,
+.delete {
+  padding: 6px 14px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 12px;
+  color: white;
+  background-color: #111;
+}
+
+input,
+#add-task,
+#clear-tasks {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 1px;
+}
+
+.column h2 {
+  text-align: center;
+}
+
+.name,
+.person,
+.date {
+  display: flex;
+  justify-content: space-between;
+}
+
+.details span > div:first-child {
+  font-weight: bold;
 }

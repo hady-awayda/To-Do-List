@@ -4,15 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-Do List</title>
-    <link rel="stylesheet" href="/assets/style.css" />
+    <link rel="stylesheet" href="Styles/style.css" />
   </head>
   <body>
     <main>
-      <section class="input">
+      <section class="task-input">
         <input id="task-name" type="text" placeholder="Task Name" />
         <input id="task-date" type="datetime-local" />
-        <input id="task-person" type="text" placeholder="Person Responsible" />
-        <button class="add-task">Add Task</button>
+        <input id="task-person" type="text" placeholder="Responsible Person" />
+        <button id="add-task">Add Task</button>
+        <button id="clear-tasks">Clear Tasks</button>
       </section>
       <section class="task-columns">
         <div class="column pending">
@@ -29,6 +30,6 @@
         </div>
       </section>
     </main>
-    <script src="assets/script.js"></script>
+    <script src="Scripts/script.js"></script>
   </body>
 </html>
